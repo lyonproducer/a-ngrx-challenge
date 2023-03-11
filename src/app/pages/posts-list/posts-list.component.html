@@ -1,0 +1,44 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-12 mb-4 d-flex mt-4">
+      <div class="w-100 pe-3">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Búsqueda"
+          [(ngModel)]="postFilter.name"
+        />
+      </div>
+      <a class="btn btn-secondary" (click)="createPost()">Crear</a>
+    </div>
+  </div>
+  <table class="table table-hover table-dark">
+    <thead scope="col">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let post of posts | filterBy : postFilter">
+      <tr>
+        <td>{{ post.id }}</td>
+        <td>{{ post.name }}</td>
+        <td>{{ post.description }}</td>
+        <td colspan="2">
+          <div class="btn btn-danger ms-3" (click)="deletePost(post)">
+            Borrar
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    *ngIf="(posts | filterBy : postFilter).length === 0"
+    class="p-4 text-center text-dark"
+  >
+    <span class="p-4">No se encuentra resultados</span>
+  </div>
+</div>

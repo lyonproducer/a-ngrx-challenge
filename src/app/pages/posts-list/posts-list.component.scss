@@ -1,0 +1,13 @@
+tr {
+    border-left: 2px #292636 solid;
+    border-right: 2px #292636 solid;
+    border-bottom: 2px #292636 solid;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table-dark {
+    --bs-table-bg: #292636 !important;
+}
